@@ -70,10 +70,8 @@ if st.button('Search'):
             st.markdown(overview[0])
             st.subheader("RATING:   " + str(vote_average[0]) + "/10 (" + str(vote_count[0]) + " counts)")
             st.subheader("GENRE: ")
-            s=" " 
-            for i in genre:
-                s=s+i
-            st.subheader(s)
+            s=" "
+            st.subheader(s.join(genre[0]))
             st.subheader("RELEASE DATE:   "+str(date[0]))
             st.subheader("RUNTIME:   "+str(runtime[0])+" hours")
             st.subheader("STATUS:   "+str(status[0]))
