@@ -83,7 +83,7 @@ if st.button('Search'):
         st.subheader("Top Cast")
         col1, col2, col3, col4, col5 = st.columns(5)
         with col1:
-            st.image(cast_list[0])
+            st.image(cast_list[0],width=200)
             st.text(cast_names[0])
         with col2:
             st.image(cast_list[1])
