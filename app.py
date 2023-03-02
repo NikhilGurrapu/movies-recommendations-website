@@ -86,7 +86,7 @@ if st.button('Search'):
             st.image(cast_list[0],width=200)
             st.text(cast_names[0])
         with col2:
-            st.image(cast_list[1])
+            st.image(cast_list[1],width=200)
             st.text(cast_names[1])
         with col3:
             st.image(cast_list[2])
