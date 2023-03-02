@@ -67,7 +67,7 @@ if st.button('Search'):
         with right_column:
             st.write("TITLE:   " + names[0])
             st.write("OVERVIEW ")
-            st.markdown(*overview[0])
+            st.markdown(overview[0])
             st.write("RATING:   " + str(vote_average[0]) + "/10 (" + str(vote_count[0]) + " counts)")
             st.write("GENRE: ")
             st.write(*genre[0])
