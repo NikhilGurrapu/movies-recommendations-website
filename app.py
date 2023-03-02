@@ -57,7 +57,7 @@ movies_dict=pickle.load(open('movies_dict.pkl','rb'))
 movies=pd.DataFrame(movies_dict)
 similarity=pickle.load(open('similarity.pkl','rb'))
 st.title('MOVIES WEBSITE')
-st.caption('MOVIE DETAILS, CAST DETAILS ALONG WITH RECOMMENDED MOVIES MADE BY NIKHIL GURRAPU :)')
+st.subheader('Movie details, Cast details along with recommended movies made by _Nikhil Gurrapu_')
 st.title(' ')
 selected_movie = st.selectbox('Type or select the movie you want !',movies['title'].values)
 if st.button('Search'):
