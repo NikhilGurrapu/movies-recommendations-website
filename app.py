@@ -43,13 +43,13 @@ def recommend(movie):
         movie_id = movies.iloc[i[0]].movie_id
         recommended_movies.append(movies.iloc[i[0]].title)
         recommended_posters.append(fetch_poster(movie_id))
-        overview.append(movies.iloc[i[0]].overview)
         vote_average.append(movies.iloc[i[0]].vote_average)
         vote_count.append(movies.iloc[i[0]].vote_count)
         genre.append(movies.iloc[i[0]].genres)
         date.append(movies.iloc[i[0]].release_date)
         runtime.append(movies.iloc[i[0]].runtime)
         status.append(movies.iloc[i[0]].status)
+    overview.append(movies.iloc[movies_list[0][0]].overview)
     return recommended_movies, recommended_posters, overview, vote_average, vote_count, genre, date, runtime, status, cast_list, cast_names
 movies_dict=pickle.load(open('movies_dict.pkl','rb'))
 movies=pd.DataFrame(movies_dict)
