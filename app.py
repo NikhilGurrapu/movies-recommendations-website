@@ -72,7 +72,7 @@ if st.button('Search'):
             st.subheader("GENRE: ")
             string="" 
             for i in genre:
-                string=string+i+' '
+                string+=i+" "
             st.subheader(string)
             st.subheader("RELEASE DATE:   "+str(date[0]))
             st.subheader("RUNTIME:   "+str(runtime[0])+" hours")
