@@ -71,7 +71,8 @@ if st.button('Search'):
             st.subheader("RATING:   " + str(vote_average[0]) + "/10 (" + str(vote_count[0]) + " counts)")
             st.subheader("GENRE: ")
             s=" " 
-            for i in genre:s+=i
+            for i in genre:
+                s+=i
             st.subheader(s)
             st.subheader("RELEASE DATE:   "+str(date[0]))
             st.subheader("RUNTIME:   "+str(runtime[0])+" hours")
