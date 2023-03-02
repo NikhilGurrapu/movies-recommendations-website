@@ -65,15 +65,15 @@ if st.button('Search'):
         with left_column:
             st.image(posters[0])
         with right_column:
-            st.write("TITLE:   " + names[0])
-            st.write("OVERVIEW ")
+            st.title(names[0])
+            st.subheader("OVERVIEW ")
             st.markdown(overview[0])
-            st.write("RATING:   " + str(vote_average[0]) + "/10 (" + str(vote_count[0]) + " counts)")
-            st.write("GENRE: ")
-            st.write(*genre[0])
-            st.write("RELEASE DATE:   "+str(date[0]))
-            st.write("RUNTIME:   "+str(runtime[0])+" hours")
-            st.write("STATUS:   "+str(status[0]))
+            st.subheader("RATING:   " + str(vote_average[0]) + "/10 (" + str(vote_count[0]) + " counts)")
+            st.subheader("GENRE: ")
+            st.subheader(*genre[0])
+            st.subheader("RELEASE DATE:   "+str(date[0]))
+            st.subheader("RUNTIME:   "+str(runtime[0])+" hours")
+            st.subheader("STATUS:   "+str(status[0]))
 
     with st.container():
         st.title(' ')
