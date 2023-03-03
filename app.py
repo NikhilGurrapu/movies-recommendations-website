@@ -83,25 +83,25 @@ if st.button('Search'):
         st.title("Top Cast")
         col1, col2, col3, col4, col5, col6, col7 = st.columns(7)
         with col1:
-            st.image(cast_list[0],width=200)
+            st.image(cast_list[0],width=180)
             st.text(cast_names[0])
         with col2:
-            st.image(cast_list[1],width=200)
+            st.image(cast_list[1],width=180)
             st.text(cast_names[1])
         with col3:
-            st.image(cast_list[2],width=200)
+            st.image(cast_list[2],width=180)
             st.text(cast_names[2])
         with col4:
-            st.image(cast_list[3],width=200)
+            st.image(cast_list[3],width=180)
             st.text(cast_names[3])
         with col5:
-            st.image(cast_list[4],width=200)
+            st.image(cast_list[4],width=180)
             st.text(cast_names[4])
         with col6:
-            st.image(cast_list[5],width=200)
+            st.image(cast_list[5],width=180)
             st.text(cast_names[5])
         with col7:
-            st.image(cast_list[6],width=200)
+            st.image(cast_list[6],width=180)
             st.text(cast_names[6])
 
     with st.container():
