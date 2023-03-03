@@ -80,8 +80,8 @@ if st.button('Search'):
 
     with st.container():
         st.title(' ')
-        st.subheader("Top Cast")
-        col1, col2, col3, col4, col5 = st.columns(5)
+        st.title("Top Cast")
+        col1, col2, col3, col4, col5, col6, col7 = st.columns(7)
         with col1:
             st.image(cast_list[0],width=200)
             st.text(cast_names[0])
@@ -89,36 +89,24 @@ if st.button('Search'):
             st.image(cast_list[1],width=200)
             st.text(cast_names[1])
         with col3:
-            st.image(cast_list[2])
+            st.image(cast_list[2],width=200)
             st.text(cast_names[2])
         with col4:
-            st.image(cast_list[3])
+            st.image(cast_list[3],width=200)
             st.text(cast_names[3])
         with col5:
-            st.image(cast_list[4])
+            st.image(cast_list[4],width=200)
             st.text(cast_names[4])
-
-    with st.container():
-        col1, col2, col3, col4, col5 = st.columns(5)
-        with col1:
-            st.image(cast_list[5])
+        with col6:
+            st.image(cast_list[5],width=200)
             st.text(cast_names[5])
-        with col2:
-            st.image(cast_list[6])
+        with col7:
+            st.image(cast_list[6],width=200)
             st.text(cast_names[6])
-        with col3:
-            st.image(cast_list[7])
-            st.text(cast_names[7])
-        with col4:
-            st.image(cast_list[8])
-            st.text(cast_names[8])
-        with col5:
-            st.image(cast_list[9])
-            st.text(cast_names[9])
 
     with st.container():
         st.title(' ')
-        st.subheader("Recommended movies")
+        st.title("Recommended movies")
         col1, col2, col3, col4, col5 = st.columns(5)
         with col1:
             st.image(posters[1])
