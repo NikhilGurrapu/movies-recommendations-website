@@ -152,9 +152,9 @@ if st.button('Search'):
             st.image(posters[10])
             st.text(names[10])
 
+    st.title(' ')
+    st.title("Reviews")
     for i in range(len(r_author)):
         with st.container():
-            col1 = st.columns(1)
-            with col1:
                 st.subheader(r_author[i])
                 st.text(r_content[i])
