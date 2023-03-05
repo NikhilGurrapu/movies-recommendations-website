@@ -5,6 +5,16 @@ import requests
 
 st.set_page_config(layout="wide")
 
+def fetch_review(movie_id):
+    respReview=requests.get("https://api.themoviedb.org/3/movie/{}/reviews?api_key=45661fea22e52c1f66135810d9c4186c&language=en-US".format(movie_id))
+    reviews=pd.DataFrame(respReview.json()['results'])
+    r_author=[]
+    r_content=[]
+    for i in range(reviews.shape[0]):
+        r_author.append(reviews['author'][i])
+        r_content.append(reviews['content'][i])
+    return r_author,r_content
+
 def fetch_poster(movie_id):
     response = requests.get('https://api.themoviedb.org/3/movie/{}?api_key=45661fea22e52c1f66135810d9c4186c&language=en-US'.format(movie_id))
     data = response.json()
@@ -45,6 +55,7 @@ def recommend(movie):
         movie_id = movies.iloc[i[0]].movie_id
         recommended_movies.append(movies.iloc[i[0]].title)
         recommended_posters.append(fetch_poster(movie_id))
+    r_author,r_content=fetch_review(movies.iloc[movies_list[0][0]].movie_id)
     vote_average.append(movies.iloc[movies_list[0][0]].vote_average)
     vote_count.append(movies.iloc[movies_list[0][0]].vote_count)
     genre.append(movies.iloc[movies_list[0][0]].genres)
@@ -52,7 +63,7 @@ def recommend(movie):
     date.append(movies.iloc[movies_list[0][0]].release_date)
     runtime.append(movies.iloc[movies_list[0][0]].runtime)
     status.append(movies.iloc[movies_list[0][0]].status)
-    return recommended_movies, recommended_posters, overview, vote_average, vote_count, genre, date, runtime, status, cast_list, cast_names
+    return recommended_movies, recommended_posters, overview, vote_average, vote_count, genre, date, runtime, status, cast_list, cast_names, r_author, r_content
 movies_dict=pickle.load(open('movies_dict.pkl','rb'))
 movies=pd.DataFrame(movies_dict)
 similarity=pickle.load(open('similarity.pkl','rb'))
@@ -61,7 +72,7 @@ st.subheader('Movie details, Cast details along with recommended movies made by 
 st.title(' ')
 selected_movie = st.selectbox('Type or select the movie you want !',movies['title'].values)
 if st.button('Search'):
-    names, posters, overview, vote_average, vote_count, genre, date, runtime, status, cast_list, cast_names = recommend(selected_movie)
+    names, posters, overview, vote_average, vote_count, genre, date, runtime, status, cast_list, cast_names, r_author, r_content = recommend(selected_movie)
     with st.container():
         left_column, right_column = st.columns(2)
         with left_column:
@@ -140,3 +151,10 @@ if st.button('Search'):
         with col5:
             st.image(posters[10])
             st.text(names[10])
+
+    for i in range(len(r_author)):
+        with st.container():
+            col1 = st.columns(1)
+            with col1:
+                st.subheader(r_author[i])
+                st.text(r_content[i])
