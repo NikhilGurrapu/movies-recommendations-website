@@ -28,7 +28,7 @@ def fetch_cast_names(movie_id):
 def recommend(movie):
     index = movies[movies['title'] == movie].index[0]
     distances = similarity[index]
-    movies_list = sorted(list(enumerate(distances)), reverse=True, key=lambda x: x[1])[0:6]
+    movies_list = sorted(list(enumerate(distances)), reverse=True, key=lambda x: x[1])[0:11]
     movie_id_main = movies.iloc[movies_list[0][0]].movie_id
     cast_list = fetch_cast_profile(movie_id_main)
     cast_names = fetch_cast_names(movie_id_main)
@@ -103,7 +103,7 @@ if st.button('Search'):
         with col7:
             st.image(cast_list[6],width=180)
             st.text(cast_names[6])
-
+    
     with st.container():
         st.title(' ')
         st.title("Recommended movies")
@@ -123,3 +123,20 @@ if st.button('Search'):
         with col5:
             st.image(posters[5])
             st.text(names[5])
+    with st.container():
+        col1, col2, col3, col4, col5 = st.columns(5)
+        with col1:
+            st.image(posters[6])
+            st.text(names[6])
+        with col2:
+            st.image(posters[7])
+            st.text(names[7])
+        with col3:
+            st.image(posters[8])
+            st.text(names[8])
+        with col4:
+            st.image(posters[9])
+            st.text(names[9])
+        with col5:
+            st.image(posters[10])
+            st.text(names[10])
